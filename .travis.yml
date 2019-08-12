@@ -21,15 +21,14 @@ services:
 
 deploy:
   provider: elasticbeanstalk
-  region: us-east-1
-  app: robot-docker
-  env:  RobotDocker-env
-  bucket_name: elasticbeanstalk-us-east-1-773329543652
-  bucket_path: robot-docker
+  region: "us-east-1"
+  app: "robot-docker"
+  env: "RobotDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-1-773329543652"
+  bucket_path: "robot-docker"
   on:
     branch: master
-  access_key_id: 
-    secure: "$AWS_ACCESS_KEY"
+  access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
     secure: "$AWS_SECRET_KEY"
   
