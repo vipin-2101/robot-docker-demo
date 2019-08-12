@@ -3,6 +3,9 @@ FROM fedora:30
 MAINTAINER Paul Podgorsek <ppodgorsek@users.noreply.github.com>
 LABEL description Robot Framework in Docker.
 
+WORKDIR '/app'
+COPY . .
+
 # Setup volume for output
 VOLUME /opt/robotframework/reports
 
@@ -31,9 +34,9 @@ ENV SSH_LIBRARY_VERSION 3.3.0
 ENV XVFB_VERSION 1.20.*
 
 # Prepare binaries to be executed
-COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
-COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
-COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
+COPY ./bin/chromedriver.sh /opt/robotframework/bin/chromedriver
+COPY ./bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
+COPY ./bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 
 # Install system dependencies
 RUN dnf upgrade -y \
