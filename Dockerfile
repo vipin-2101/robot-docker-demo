@@ -92,4 +92,4 @@ EXPOSE 8000
 
 
 # Execute all robot tests
-CMD ["ls /opt"]
+CMD ["run-tests-in-virtual-screen.sh"]
