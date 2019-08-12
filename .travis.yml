@@ -10,13 +10,13 @@ services:
 #script:
   #- docker run -e CI=true vipinjain/react-test npm test
 
-after_success:
-  - docker build -t vipinjain/robot-docker .
+#after_success:
+  #- docker build -t vipinjain/robot-docker .
   
   # Log in to the Docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  #- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push vipinjain/robot-docker
+  #- docker push vipinjain/robot-docker
 
 
 deploy:
@@ -25,7 +25,7 @@ deploy:
   app: robot-docker
   env:  RobotDocker-env
   bucket_name: elasticbeanstalk-us-east-1-773329543652
-  bucket_path: docker-robot
+  bucket_path: robot-docker
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
