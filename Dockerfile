@@ -88,4 +88,4 @@ ENV PATH=/opt/robotframework/bin:/opt/robotframework/drivers:$PATH
 EXPOSE 8000
 
 # Execute all robot tests
-CMD ["run-tests-in-virtual-screen.sh"]
+CMD ["/opt/robotframework/binrun-tests-in-virtual-screen.sh"]
