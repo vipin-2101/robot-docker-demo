@@ -87,7 +87,6 @@ ENV PATH=/opt/robotframework/bin:/opt/robotframework/drivers:$PATH
 #EXPOSE PORT ON AWS BEANSTALK
 EXPOSE 8000
 
-RUN cd /opt
 
 # Execute all robot tests
-CMD ["ls"]
+CMD ["ls /opt"]
