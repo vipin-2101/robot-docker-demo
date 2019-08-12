@@ -84,5 +84,8 @@ RUN npm install -g http-server
 # Update system path
 ENV PATH=/opt/robotframework/bin:/opt/robotframework/drivers:$PATH
 
+#EXPOSE PORT ON AWS BEANSTALK
+EXPOSE 8000
+
 # Execute all robot tests
 CMD ["run-tests-in-virtual-screen.sh"]
