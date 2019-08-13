@@ -88,7 +88,7 @@ RUN npm install -g http-server
 ENV PATH=/opt/robotframework/bin:/opt/robotframework/drivers:$PATH
 
 #EXPOSE PORT ON AWS BEANSTALK
-EXPOSE 8000
+#EXPOSE 8000
 
 
 # Execute all robot tests
