@@ -1,10 +1,10 @@
 FROM fedora:30
 
-# Setup volume for output
-#VOLUME /opt/robotframework/reports
+MAINTAINER Paul Podgorsek <ppodgorsek@users.noreply.github.com>
+LABEL description Robot Framework in Docker.
 
-WORKDIR /app
-COPY ./ ./
+# Setup volume for output
+VOLUME /opt/robotframework/reports
 
 # Setup X Window Virtual Framebuffer
 ENV SCREEN_COLOUR_DEPTH 24
@@ -31,9 +31,9 @@ ENV SSH_LIBRARY_VERSION 3.3.0
 ENV XVFB_VERSION 1.20.*
 
 # Prepare binaries to be executed
-COPY bin/chromedriver.sh /app/opt/robotframework/bin/chromedriver
-COPY bin/chromium-browser.sh /app/opt/robotframework/bin/chromium-browser
-COPY bin/run-tests-in-virtual-screen.sh /app/opt/robotframework/bin/
+COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
+COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
+COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 
 # Install system dependencies
 RUN dnf upgrade -y \
@@ -48,7 +48,7 @@ RUN dnf upgrade -y \
     wget \
   && dnf clean all \
   && mv /usr/lib64/chromium-browser/chromium-browser /usr/lib64/chromium-browser/chromium-browser-original \
-  && ln -sfv /app/opt/robotframework/bin/chromium-browser /usr/lib64/chromium-browser/chromium-browser
+  && ln -sfv /opt/robotframework/bin/chromium-browser /usr/lib64/chromium-browser/chromium-browser
 # FIXME: above is a workaround, as the path is ignored
 
 # Make python 3 the default python      
@@ -71,8 +71,8 @@ RUN pip3 install \
 # Download Gecko drivers directly from the GitHub repository
 RUN wget -q "https://github.com/mozilla/geckodriver/releases/download/$GECKO_DRIVER_VERSION/geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz" \
       && tar xzf geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz \
-      && mkdir -p /app/opt/robotframework/drivers/ \
-      && mv geckodriver /app/opt/robotframework/drivers/geckodriver \
+      && mkdir -p /opt/robotframework/drivers/ \
+      && mv geckodriver /opt/robotframework/drivers/geckodriver \
       && rm geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz
 
 #Install NodeJS Http server
@@ -82,10 +82,8 @@ RUN npm install -g http-server
 
 
 # Update system path
-ENV PATH=/app/opt/robotframework/bin:/app/opt/robotframework/drivers:$PATH
+ENV PATH=/opt/robotframework/bin:/opt/robotframework/drivers:$PATH
 
-#EXPOSE PORT ON AWS BEANSTALK
-EXPOSE 8000
 
 # Execute all robot tests
 CMD ["run-tests-in-virtual-screen.sh"]

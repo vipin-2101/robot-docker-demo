@@ -1,7 +1,7 @@
 *~
 
 .git/
-test/
+
 
 .gitignore
 .travis.yml

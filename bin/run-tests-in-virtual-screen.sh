@@ -6,9 +6,9 @@ then
     xvfb-run \
         --server-args="-screen 0 ${SCREEN_WIDTH}x${SCREEN_HEIGHT}x${SCREEN_COLOUR_DEPTH} -ac" \
         robot \
-        --outputDir /opt/robotframework/reports \
+        --outputDir /app/reports \
         ${ROBOT_OPTIONS} \
-        /opt/robotframework/tests
+        /app/test
 else
     xvfb-run \
         --server-args="-screen 0 ${SCREEN_WIDTH}x${SCREEN_HEIGHT}x${SCREEN_COLOUR_DEPTH} -ac" \
@@ -22,4 +22,4 @@ fi
 
 # Run HTTP server
 #cd /opt/robotframework/reports
-http-server /opt/robotframework/reports -p 8000
+http-server /app/reports -p 8000
