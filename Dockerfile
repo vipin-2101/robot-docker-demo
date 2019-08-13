@@ -3,8 +3,8 @@ FROM fedora:30
 MAINTAINER Paul Podgorsek <ppodgorsek@users.noreply.github.com>
 LABEL description Robot Framework in Docker.
 
-WORKDIR '/app'
-COPY . .
+#WORKDIR '/app'
+#COPY . .
 
 # Setup volume for output
 VOLUME /opt/robotframework/reports
@@ -88,7 +88,7 @@ RUN npm install -g http-server
 ENV PATH=/opt/robotframework/bin:/opt/robotframework/drivers:$PATH
 
 #EXPOSE PORT ON AWS BEANSTALK
-#EXPOSE 8000
+EXPOSE 8000
 
 
 # Execute all robot tests
