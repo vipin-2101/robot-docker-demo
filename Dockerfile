@@ -76,6 +76,7 @@ RUN wget -q "https://github.com/mozilla/geckodriver/releases/download/$GECKO_DRI
       && rm geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz
 
 #Install NodeJS Http server
+RUN dnf clean all
 RUN dnf -y install nodejs npm
 RUN npm install -g http-server
    
