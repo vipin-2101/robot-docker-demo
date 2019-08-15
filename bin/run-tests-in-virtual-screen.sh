@@ -21,5 +21,4 @@ else
 fi
 
 # Run HTTP server
-#cd /opt/robotframework/reports
 http-server /app/reports -p 8000
