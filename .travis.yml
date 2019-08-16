@@ -4,14 +4,14 @@ language: generic
 services:
   - docker
 
-#before_install:
-  #- docker build -t vipinjain/robot-docker .
+before_install:
+  - docker build -t vipinjain/robot-docker .
 
-#script:
-  #- docker run -e CI=true vipinjain/react-test npm test
+script:
+  - docker run -e BROWSER=chrome --shm-size=1g -p 8000:8000 vipinjain/robot-docker
 
 after_success:
-  - docker build -t vipinjain/robot-docker .
+  #- docker build -t vipinjain/robot-docker .
   
   # Log in to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
