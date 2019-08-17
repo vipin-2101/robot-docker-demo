@@ -35,6 +35,9 @@ COPY bin/chromedriver.sh /app/opt/robotframework/bin/chromedriver
 COPY bin/chromium-browser.sh /app/opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /app/opt/robotframework/bin/
 RUN chmod +x /app/opt/robotframework/bin/run-tests-in-virtual-screen.sh
+COPY bin/run-smoke-test-in-virtual-screen.sh /app/opt/robotframework/bin/
+RUN chmod +x /app/opt/robotframework/bin/run-smoke-test-in-virtual-screen.sh
+
 
 # Install system dependencies
 RUN dnf upgrade -y \
