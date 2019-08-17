@@ -32,9 +32,9 @@ ENV XVFB_VERSION 1.20.*
 
 # Prepare binaries to be executed
 COPY bin/chromedriver.sh /app/opt/robotframework/bin/chromedriver
-RUN chmod +x /app/opt/robotframework/bin/chromedriver/chromedriver.sh
+RUN chmod +x /app/opt/robotframework/bin/chromedriver
 COPY bin/chromium-browser.sh /app/opt/robotframework/bin/chromium-browser
-RUN chmod +x /app/opt/robotframework/bin/chromium-browser/chromium-browser.sh
+RUN chmod +x /app/opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /app/opt/robotframework/bin/
 RUN chmod +x /app/opt/robotframework/bin/run-tests-in-virtual-screen.sh
 COPY bin/run-smoke-test-in-virtual-screen.sh /app/opt/robotframework/bin/
