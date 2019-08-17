@@ -8,7 +8,7 @@ before_install:
   - docker build -t vipinjain/robot-docker .
 
 script:
-  - docker run -e BROWSER=chrome --shm-size=1g -p 8000:8000 8efb6023cbd4 run-smoke-test-in-virtual-screen.sh
+  - docker run -e BROWSER=chrome --shm-size=1g -p 8000:8000 vipinjain/robot-docker run-smoke-test-in-virtual-screen.sh
 
 after_success:
   #- docker build -t vipinjain/robot-docker .
