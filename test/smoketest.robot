@@ -9,4 +9,5 @@ ${IS_Frozen_Success} =      xpath=.//*[@id='tsf']/div[2]/div/div[3]/center/input
 Test Google
 	Open Browser			https://www.google.com		${BROWSER}
 	Capture Page Screenshot
+	Close Browser
 
