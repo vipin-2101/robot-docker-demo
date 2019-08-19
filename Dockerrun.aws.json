@@ -12,9 +12,7 @@
                     "containerPort": 8000
                 }
             ],
-            "memory": 128,
-            "Entrypoint": ["run-tests-in-virtual-screen.sh"],
-            "Command": ["-e","BROWSER=chrome","--shm-size=1g" ]
+            "memory": 128
         }
     ]
 }
