@@ -11,7 +11,7 @@ script:
   - docker run -e BROWSER=chrome --shm-size=1g vipinjain/robot-docker run-smoke-test-in-virtual-screen.sh
 
 after_success:
-  #- docker build -t vipinjain/robot-docker .
+  
   
   # Log in to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
@@ -22,10 +22,10 @@ after_success:
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
-  app: "robot-docker"
-  env: "RobotDocker-env"
+  app: "robot-docker6"
+  env: "RobotDocker6-env"
   bucket_name: "elasticbeanstalk-us-east-1-773329543652"
-  bucket_path: "robot-docker"
+  bucket_path: "robot-docker6"
   on:
     branch: master
   secret_access_key:
