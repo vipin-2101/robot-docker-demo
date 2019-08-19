@@ -12,7 +12,10 @@
                     "containerPort": 8000
                 }
             ],
-            "memoryReservation": 2048
+            "memoryReservation": 2048,
+            "linuxParameters": {
+                "sharedMemorySize": 2048
+            }
         }
     ]
 }
