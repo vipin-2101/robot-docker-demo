@@ -3,7 +3,6 @@ Library			SeleniumLibrary
 
 *** Variables ***
 ${BROWSER}		firefox
-${IS_Frozen_Success} =      xpath=.//*[@id='tsf']/div[2]/div/div[3]/center/input[1]
 
 *** Test Cases ***
 Test Google
