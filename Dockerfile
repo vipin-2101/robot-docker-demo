@@ -1,6 +1,6 @@
 FROM fedora:30
 
-# Setup volume for output
+# Setup volume for  output
 #VOLUME /opt/robotframework/reports
 
 WORKDIR /app
